@@ -2,25 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GoodType
+
+
+public enum GoodEffect
 {
-    Book = 0,
-    Xbox = 1,
-    Switch = 2,
-
-
-
-    Door = 99,
+    Buff = 0,       
+    Debuff = 1,
+    None = 2
 }
 
 public class Good : MonoBehaviour
 {
+    private enum GoodType
+    {
+        Book = 0,
+        Xbox = 1,
+        Switch = 2,
 
-
-
-
-
-
+        Door = 99,
+    }
 
 
     #region Public Methons
@@ -30,9 +30,9 @@ public class Good : MonoBehaviour
     /// </summary>
     /// <param name="goodType">物品类型</param>
     /// <returns></returns>
-    public int GetInteractiveGood(GoodType goodType)
+    public int GetInteractiveGood(GoodEffect effect)
     {
-        switch (goodType)
+        switch (effect)
         {
                 
         }

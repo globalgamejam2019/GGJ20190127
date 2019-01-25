@@ -16,6 +16,7 @@ public enum playerStatus
     idle = 4,
 }
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 public class PlayerManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class PlayerManager : MonoBehaviour
     private float _firstBlood = 100.0f;
 
     private Animator _animator;
+    private Rigidbody2D _rigidbody2D;
     private Dictionary<int, int> _animatorHashIdList;
     private Collider2D _collider2D;
 
@@ -35,6 +37,7 @@ public class PlayerManager : MonoBehaviour
         _playerData = new PlayerData(_firstBlood);
         _animator = GetComponent<Animator>();
         _collider2D = GetComponent<Collider2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
 
         _animatorHashIdList = new Dictionary<int, int>();
         _animatorHashIdList.Add((int) playerStatus.idle, Animator.StringToHash("idle"));
@@ -138,7 +141,19 @@ public class PlayerManager : MonoBehaviour
 
     #region Collider
 
-    
+    void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        GoodEffect goodEffect = GoodEffect.None;
+        if (collider2D.tag == "Buff")
+        {
+            goodEffect = GoodEffect.Buff;
+        }
+        else if (collider2D.tag == "DeBuff")
+        {
+            goodEffect = GoodEffect.Debuff;
+        }
+        collider2D.GetComponent<Good>().GetInteractiveGood(goodEffect);
+    }
 
     #endregion
 }
