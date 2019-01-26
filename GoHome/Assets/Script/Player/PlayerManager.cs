@@ -289,7 +289,7 @@ public class PlayerManager : MonoBehaviour
     private void UpdateSomethings()
     {
         //刷新血条UI
-        Singleton<GameManager>.Instance.UpdataBloodSlider(PlayerData.MAXBLOOD, _playerData.blood);
+        Singleton<GameManager>.Instance.UpdateBloodSlider(PlayerData.MAXBLOOD, _playerData.blood);
     }
 
     #endregion
