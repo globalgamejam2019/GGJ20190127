@@ -12,7 +12,7 @@ public enum GoodEffect
     None = 2
 }
 
-public class NewBehaviourScript : MonoBehaviour
+public class Good : MonoBehaviour
 {
 
     public GameObject good;

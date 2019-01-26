@@ -45,6 +45,15 @@ public enum BackgroundSceneStatus
     StartScene2 = 2,
     EndScene2 = 3
 }
+
+public enum AudioSoundType
+{
+    begin = 0,
+    eatGood = 1,
+    bloodMax = 2,
+    eatNoodles = 3,
+    fail =4
+}
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -53,6 +62,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Camera _mainCamera;
 
+    private AudioSource _audipSource;
     #region UICache
     [SerializeField]
     private Image _bloodImage;
@@ -83,7 +93,16 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public List<BackGroundTextList> backGroundTextList;
     private Dictionary<BackgroundSceneStatus, List<string>> backGroundTextDict;
+
+    private List<AudioClip> bgmAudioClipList;
+    private List<AudioClip> playerClipList;
+    //temp
+    public bool firstBloodMax = false;
+
+
     #endregion
+    public GameManager() { }
+
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -93,6 +112,7 @@ public class GameManager : MonoBehaviour
 
         LoadUIResource();
         InitData();
+        StartGame();
     }
 
 
@@ -106,6 +126,17 @@ public class GameManager : MonoBehaviour
         _selfAwarenessSprite = new List<Sprite>();
         for (int i = 0; i < 2; i++)
             _selfAwarenessSprite.Add(Resources.Load<Sprite>("Sprite/UI/selfAwareness" + i));
+        //bgm
+        bgmAudioClipList = new List<AudioClip>();
+        for (int i = 0; i < 5; i++)
+            bgmAudioClipList.Add(Resources.Load<AudioClip>("Audio/" + i));
+        _audipSource = _mainCamera.GetComponent<AudioSource>();
+        //玩家音效
+        playerClipList = new List<AudioClip>();
+        for (int i = 0; i < 2; i++)
+        {
+            playerClipList.Add(Resources.Load<AudioClip>("Audio/PlayerAudio/" + i));
+        }
         return;
     }
 
@@ -119,6 +150,10 @@ public class GameManager : MonoBehaviour
                 backGroundTextDict.Add(backGroundTextList[i].sceneStatus, backGroundTextList[i].sceneTextList);
     }
 
+    private void StartGame()
+    {
+        SetAudioBgm(AudioSoundType.begin);
+    }
 
 
     #region UIManager
@@ -201,6 +236,28 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region Sound Manager
+    /// <summary>
+    /// 设置背景音乐
+    /// </summary>
+    /// <param name="audioSoundType">什么时候设置</param>
+    public void SetAudioBgm(AudioSoundType audioSoundType)
+    {
+        _audipSource.Stop();
+        _audipSource.clip = bgmAudioClipList[(int)audioSoundType];
+        _audipSource.Play();
+    }
+
+    public AudioClip GetJumpClip()
+    {
+        return playerClipList[1];
+    }
+    public AudioClip GetScrunchClip()
+    {
+        return playerClipList[0];
+    }
+    #endregion
+
     #region Common Methon
     IEnumerator SetUpFuntionForSeconds(UnityAction callBackAction, float timeSecond)
     {
@@ -235,5 +292,14 @@ public class GameManager : MonoBehaviour
         }
         yield break;
     }
+    #endregion
+
+    #region Game Manager
+
+    public void GameOver()
+    {
+        SetAudioBgm(AudioSoundType.fail);
+    }
+
     #endregion
 }

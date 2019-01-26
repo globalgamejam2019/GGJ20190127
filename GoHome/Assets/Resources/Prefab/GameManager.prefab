@@ -62,3 +62,4 @@ MonoBehaviour:
     - "\u6211\u4EEC\u81EA\u4EE5\u4E3A\u6446\u8131\u4E86<color=\"#2cb7ef\">\u5BB6\u5EAD</color>\u7684\u675F\u7F1A\uFF0C\u524D\u5F80\u4E86\u5916\u9762\u7684\u4E16\u754C"
   - sceneStatus: 3
     sceneTextList: []
+  firstBloodMax: 0

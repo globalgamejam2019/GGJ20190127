@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 2693320}
   m_Layer: 0
   m_Name: New Sprite
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -602,7 +602,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673957247}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -632,16 +632,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: videoPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 5422339743703464822, guid: 14579d5141d0e64418248f8c59760eba,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5422339743703464822, guid: 14579d5141d0e64418248f8c59760eba,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5818968290114316381, guid: 14579d5141d0e64418248f8c59760eba,
         type: 3}
@@ -1582,15 +1572,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7437646208951686074, guid: 50b05672288463a49a009958441858e1,
+    - target: {fileID: 7437646210480016843, guid: 50b05672288463a49a009958441858e1,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7437646210480016842, guid: 50b05672288463a49a009958441858e1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_AnchoredPosition.x
+      value: 19.199707
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b05672288463a49a009958441858e1, type: 3}
@@ -2191,21 +2176,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767849122710907910, guid: a31303b69cb3f1247a1d0886d2942b36,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767849122710907928, guid: a31303b69cb3f1247a1d0886d2942b36,
-        type: 3}
-      propertyPath: orthographic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767849122710907928, guid: a31303b69cb3f1247a1d0886d2942b36,
-        type: 3}
-      propertyPath: orthographic size
-      value: 5.335532
       objectReference: {fileID: 0}
     - target: {fileID: 4767849122710907929, guid: a31303b69cb3f1247a1d0886d2942b36,
         type: 3}

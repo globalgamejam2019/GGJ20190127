@@ -29,8 +29,10 @@ public enum movingDirection
 [RequireComponent(typeof(Animator))]
 public class PlayerManager : MonoBehaviour
 {
+    private PlayerData _playerData;
+
     [SerializeField]
-    private int _firstBlood = 100;
+    private int _firstBlood = 0;
     [SerializeField]
     private float _jumpSpeed = 1.0f;
     [SerializeField]
@@ -45,8 +47,7 @@ public class PlayerManager : MonoBehaviour
     private Dictionary<int, int> _animatorHashIdList;
     private Collider2D _collider2D;
     private SpriteRenderer _spriteRenderer;
-
-    private PlayerData _playerData;
+    private AudioSource _audioSource;
 
     private movingDirection _movingSatus = movingDirection.None;
     private bool _jumping = false;
@@ -59,6 +60,7 @@ public class PlayerManager : MonoBehaviour
         _collider2D = GetComponent<Collider2D>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _audioSource = GetComponent<AudioSource>();
 
         _animatorHashIdList = new Dictionary<int, int>();
         _animatorHashIdList.Add((int) playerStatus.Idle, Animator.StringToHash("Idle"));
@@ -207,7 +209,7 @@ public class PlayerManager : MonoBehaviour
         //_rigidbody2D.AddForce(transform.up * _jumpSpeed);
         _rigidbody2D.velocity = transform.up * _jumpSpeed;
         SetAnimatorTrigger(jumpStatus);
-
+        SetupAudioClip(Singleton<GameManager>.Instance.GetJumpClip());
     }
 
     private void SetupJumpEnd()
@@ -244,6 +246,7 @@ public class PlayerManager : MonoBehaviour
         if (_movingSatus != movingDirection.None)
             SetAnimatorBool(playerStatus.Run, false);
         SetAnimatorTrigger(playerStatus.SrounchStart);
+        SetupAudioClip(Singleton<GameManager>.Instance.GetScrunchClip());
     }
 
     private void SetupScrunchEnd()
@@ -280,8 +283,9 @@ public class PlayerManager : MonoBehaviour
             goodEffect = GoodEffect.Debuff;
         }
 
-        //_playerData.blood -=?
-       //collider2D.GetComponent<NewBehaviourScript>().GetInteractiveGood(goodEffect);
+        _playerData.blood += collider2D.GetComponent<Good>().GetInteractiveGood(goodEffect);
+        if (_playerData.blood > 100) _playerData.blood = 100;
+        if (_playerData.blood <= 0) _playerData.blood = 0;
 
         UpdateSomethings();
     }
@@ -290,12 +294,24 @@ public class PlayerManager : MonoBehaviour
     {
         //刷新血条UI
         Singleton<GameManager>.Instance.UpdateBloodSlider(PlayerData.MAXBLOOD, _playerData.blood);
+
+        //第一次BloodMax，更改背景音乐
+        if (!Singleton<GameManager>.Instance.firstBloodMax && _playerData.blood >= 100)
+        {
+            Singleton<GameManager>.Instance.firstBloodMax = true;
+            Singleton<GameManager>.Instance.SetAudioBgm(AudioSoundType.bloodMax);
+        }
+
+        if (_playerData.blood <= 0)
+        {
+            Singleton<GameManager>.Instance.GameOver();
+        }
     }
 
     #endregion
 
 
-    #region Animation Callback
+    #region Animation Callback 
 
     public void JumpSpeedUpDown()
     {
@@ -304,4 +320,12 @@ public class PlayerManager : MonoBehaviour
     }
 
     #endregion
+
+    private void SetupAudioClip(AudioClip audioClip)
+    {
+        _audioSource.Stop();
+        _audioSource.clip = audioClip;
+        _audioSource.Play();
+        _audioSource.loop = false;
+    }
 }
