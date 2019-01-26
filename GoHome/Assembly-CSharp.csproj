@@ -79,6 +79,8 @@
     <Compile Include="Assets\Anima2D\Scripts\SpriteMesh.cs" />
     <Compile Include="Assets\Anima2D\Scripts\SpriteMeshAnimation.cs" />
     <Compile Include="Assets\Anima2D\Scripts\SpriteMeshInstance.cs" />
+    <Compile Include="Assets\DaCong\player.cs" />
+    <Compile Include="Assets\DaCong\playermove.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\Good\Good.cs" />
     <Compile Include="Assets\Script\Player\PlayerData.cs" />
