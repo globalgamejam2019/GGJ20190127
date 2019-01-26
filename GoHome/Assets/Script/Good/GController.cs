@@ -8,22 +8,26 @@ public class GController : MonoBehaviour
 
     public float speed ;
 
-    public float rotation;
 
-    void update()
+
+
+    void Update()
+
           {
-             transform.Translate(Vector3.right * Time.deltaTime * speed);
 
 
-            transform.Rotate(new Vector3(0, 0,10), Time.deltaTime * rotation, Space.Self);
+        transform.Translate(Vector3.right * Time.deltaTime * speed);
 
-    }
 
-    private void OnCollisionEnter2D(Collision coll)
+          }
+
+    private void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Wall")
         {
-            GameObject.Destroy(this.gameobject);
+            GameObject.Destroy(this.gameObject);
+
+
         }
 
     }

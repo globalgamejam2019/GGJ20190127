@@ -44,7 +44,7 @@ public class NewBehaviourScript : MonoBehaviour
 
         GameObject spawn = GameObject.Find("Spawn");
 
-        spawn.GetComponents<spawn>().count = spawn.GetComponents<spawn>().count++;
+        //spawn.GetComponents<spawn>().count = spawn.GetComponents<spawn>().count++;
 
 
 
