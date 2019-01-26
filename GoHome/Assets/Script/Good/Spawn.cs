@@ -32,8 +32,9 @@ public class Spawn : MonoBehaviour {
 
 
         timer += Time.deltaTime;
-        //GameObject instance = Instantiate(Resources.Load("Ball")) as GameObject;
+
         if (timer >= 1)
+
         {
             Instantiate(Good[Random.Range(0, Good.Length)], new Vector2(-9.5f, Random.Range(10, -8)), Quaternion.identity);
 

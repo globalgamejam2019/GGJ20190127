@@ -1,0 +1,627 @@
+fileFormatVersion: 2
+guid: b0d5aec3fbbb7334d877e1bb4afa2044
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: "\u7BEE\u7403\u52A8\u4F5C_0"
+    21300002: "\u7BEE\u7403\u52A8\u4F5C_1"
+    21300004: "\u7BEE\u7403\u52A8\u4F5C_2"
+    21300006: "\u7BEE\u7403\u52A8\u4F5C_3"
+    21300008: "\u7BEE\u7403\u52A8\u4F5C_4"
+    21300010: "\u7BEE\u7403\u52A8\u4F5C_5"
+    21300012: "\u7BEE\u7403\u52A8\u4F5C_6"
+    21300014: "\u7BEE\u7403\u52A8\u4F5C_7"
+    21300016: "\u7BEE\u7403\u52A8\u4F5C_8"
+    21300018: "\u7BEE\u7403\u52A8\u4F5C_9"
+    21300020: "\u7BEE\u7403\u52A8\u4F5C_10"
+    21300022: "\u7BEE\u7403\u52A8\u4F5C_11"
+    21300024: "\u7BEE\u7403\u52A8\u4F5C_12"
+    21300026: "\u7BEE\u7403\u52A8\u4F5C_13"
+    21300028: "\u7BEE\u7403\u52A8\u4F5C_14"
+    21300030: "\u7BEE\u7403\u52A8\u4F5C_15"
+    21300032: "\u7BEE\u7403\u52A8\u4F5C_16"
+    21300034: "\u7BEE\u7403\u52A8\u4F5C_17"
+    21300036: "\u7BEE\u7403\u52A8\u4F5C_18"
+    21300038: "\u7BEE\u7403\u52A8\u4F5C_19"
+    21300040: "\u7BEE\u7403\u52A8\u4F5C_20"
+    21300042: "\u7BEE\u7403\u52A8\u4F5C_21"
+    21300044: "\u7BEE\u7403\u52A8\u4F5C_22"
+    21300046: "\u7BEE\u7403\u52A8\u4F5C_23"
+    21300048: idleAndJumpAndSrcunch_0
+    21300050: idleAndJumpAndSrcunch_1
+    21300052: idleAndJumpAndSrcunch_2
+    21300054: idleAndJumpAndSrcunch_3
+    21300056: idleAndJumpAndSrcunch_4
+    21300058: idleAndJumpAndSrcunch_5
+    21300060: idleAndJumpAndSrcunch_6
+    21300062: idleAndJumpAndSrcunch_7
+    21300064: idleAndJumpAndSrcunch_8
+    21300066: idleAndJumpAndSrcunch_9
+    21300068: idleAndJumpAndSrcunch_10
+    21300070: idleAndJumpAndSrcunch_11
+    21300072: idleAndJumpAndSrcunch_12
+    21300074: idleAndJumpAndSrcunch_13
+    21300076: idleAndJumpAndSrcunch_14
+    21300078: idleAndJumpAndSrcunch_15
+    21300080: idleAndJumpAndSrcunch_16
+    21300082: idleAndJumpAndSrcunch_17
+    21300084: idleAndJumpAndSrcunch_18
+    21300086: idleAndJumpAndSrcunch_19
+    21300088: idleAndJumpAndSrcunch_20
+    21300090: idleAndJumpAndSrcunch_21
+    21300092: idleAndJumpAndSrcunch_22
+    21300094: idleAndJumpAndSrcunch_23
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_0
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1740
+        width: 308
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 654ccb5f83047144abe784494602b3ff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_1
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 1744
+        width: 345
+        height: 579
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be9e32d28e12eea4583986ebd1bdac97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_2
+      rect:
+        serializedVersion: 2
+        x: 1678
+        y: 1736
+        width: 323
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bade1adb2d3e6c64c81dd85cf19f90bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_3
+      rect:
+        serializedVersion: 2
+        x: 2247
+        y: 2053
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d40fd6e404672941bf4a2f8f218cfcb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_4
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 1568
+        width: 229
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84ec21b72d413c2479dbf32dda29cff3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_5
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 1573
+        width: 280
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f39a4efeb3268cb42aa2439b44466585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_6
+      rect:
+        serializedVersion: 2
+        x: 2077
+        y: 1568
+        width: 445
+        height: 484
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aa0eae933f5ed140976f3cc9f3a9e20
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_7
+      rect:
+        serializedVersion: 2
+        x: 2682
+        y: 1562
+        width: 226
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a5abc0980200b498bea0eab9977d9b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_8
+      rect:
+        serializedVersion: 2
+        x: 2998
+        y: 1576
+        width: 243
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e3733d4f4eccec4bb5c7252e172cb8e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_9
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 1507
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6cd555d3a3ba6c47a2b8e0a620157b1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_10
+      rect:
+        serializedVersion: 2
+        x: 2713
+        y: 1503
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 022e8b937fef20f4da1b2be20fe5206e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_11
+      rect:
+        serializedVersion: 2
+        x: 2990
+        y: 1510
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 866d73b5994279f488363530c6510242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_12
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 988
+        width: 201
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c76a2c48f021984fbbebfccb05b5326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_13
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 980
+        width: 225
+        height: 356
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658846f754f9eb8418d36b8f6b00fc53
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_14
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 979
+        width: 243
+        height: 325
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd31b26227cd1f4f9092ed5f11ad3f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_15
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 984
+        width: 243
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ee6e8bd6993a2c42a657475694153ee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_16
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 987
+        width: 242
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f23ef59f61cfd7e42ad71d7d4368ad6b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_17
+      rect:
+        serializedVersion: 2
+        x: 1822
+        y: 977
+        width: 227
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9994432d0248d144daa28426eed53909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_18
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 945
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c74f070c9a0897e498092537a41c3f1f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_19
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 921
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0336a1eef9bf8df4b9e627e638e71254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_20
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 916
+        width: 10
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd47546687e62424fb83fdae196c2fc5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_21
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 919
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0376317995583d14fb873400652c64f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_22
+      rect:
+        serializedVersion: 2
+        x: 1531
+        y: 921
+        width: 11
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e6c7a9cee7401a4d9e06a19ad23196d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idleAndJumpAndSrcunch_23
+      rect:
+        serializedVersion: 2
+        x: 1855
+        y: 916
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53c88a6831509724b88b68d1e2e246e1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 785d887baafd6e64ea6260bc7a95e8fc
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

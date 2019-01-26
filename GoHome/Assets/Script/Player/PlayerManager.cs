@@ -9,11 +9,20 @@ using UnityEngine.Experimental.PlayerLoop;
  */
 public enum playerStatus
 {
-    leftWalk = 0,
-    rightWalk = 1,
-    jump = 2,
-    scrunch = 3,
-    idle = 4,
+    Run = 0,
+    JumpStart = 1,
+    JumpEnd =  2,
+    JumpAuto = 3,
+    SrounchStart = 4,
+    SrounchEnd = 5,
+    Idle = 6,
+}
+
+public enum movingDirection
+{
+    None = 0,
+    Left = 1,
+    Right = 2,
 }
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -21,16 +30,27 @@ public enum playerStatus
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField]
-    private float _firstBlood = 100.0f;
+    private int _firstBlood = 100;
+    [SerializeField]
+    private float _jumpSpeed = 1.0f;
+    [SerializeField]
+    private float _jumpDownForce = 1.0f;
+    [SerializeField]
+    private float _jumpMovingForce = 1.0f;
+    [SerializeField]
+    private float _MovingSpeed = 1.0f;
 
     private Animator _animator;
     private Rigidbody2D _rigidbody2D;
     private Dictionary<int, int> _animatorHashIdList;
     private Collider2D _collider2D;
+    private SpriteRenderer _spriteRenderer;
 
     private PlayerData _playerData;
-    private playerStatus _currentPlayerStatus = playerStatus.idle;
-    private playerStatus _lastPlayerStatus = playerStatus.idle;
+
+    private movingDirection _movingSatus = movingDirection.None;
+    private bool _jumping = false;
+    private bool _scrunching = false;
 
     void Awake()
     {
@@ -38,13 +58,16 @@ public class PlayerManager : MonoBehaviour
         _animator = GetComponent<Animator>();
         _collider2D = GetComponent<Collider2D>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
 
         _animatorHashIdList = new Dictionary<int, int>();
-        _animatorHashIdList.Add((int) playerStatus.idle, Animator.StringToHash("idle"));
-        _animatorHashIdList.Add((int) playerStatus.rightWalk, Animator.StringToHash("rightWalk"));
-        _animatorHashIdList.Add((int) playerStatus.jump, Animator.StringToHash("jump"));
-        _animatorHashIdList.Add((int) playerStatus.leftWalk, Animator.StringToHash("leftWalk"));
-        _animatorHashIdList.Add((int) playerStatus.scrunch, Animator.StringToHash("scrunch"));
+        _animatorHashIdList.Add((int) playerStatus.Idle, Animator.StringToHash("Idle"));
+        _animatorHashIdList.Add((int) playerStatus.JumpStart, Animator.StringToHash("JumpStart"));
+        _animatorHashIdList.Add((int) playerStatus.JumpEnd, Animator.StringToHash("JumpEnd"));
+        _animatorHashIdList.Add((int) playerStatus.JumpAuto, Animator.StringToHash("JumpAuto"));
+        _animatorHashIdList.Add((int) playerStatus.SrounchStart, Animator.StringToHash("SrounchStart"));
+        _animatorHashIdList.Add((int) playerStatus.SrounchEnd, Animator.StringToHash("SrounchEnd"));
+        _animatorHashIdList.Add((int) playerStatus.Run, Animator.StringToHash("Run"));
     }
 
     void Update()
@@ -53,96 +76,200 @@ public class PlayerManager : MonoBehaviour
         UpdateControllerListen();
     }
 
-    void FixedUpdate()
-    {
-        UpdatePlayerView();
-    }
-
     #region Controller
 
     private void UpdateControllerListen()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        //跳 + 
+        if (_jumping)
         {
-            _lastPlayerStatus = _currentPlayerStatus;
-            _currentPlayerStatus = playerStatus.leftWalk;
+            //停止跑动
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                _movingSatus = movingDirection.None;
+                SetupMoving(false);
+            }
+            if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                _movingSatus = movingDirection.None;
+                SetupMoving(false);
+            }
+            return;
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+
+        //蹲 + 
+        if (_scrunching)
         {
-            _lastPlayerStatus = _currentPlayerStatus;
-            _currentPlayerStatus = playerStatus.rightWalk;
+            if (!Input.GetKey(KeyCode.LeftControl) && !Input.GetKey(KeyCode.RightControl) &&
+                !Input.GetKey(KeyCode.DownArrow))
+            {
+                _scrunching = false;
+                SetupScrunchEnd();
+                //不蹲
+            }
+            else
+            {
+                _scrunching = true;
+                //保持蹲
+                return;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
+        else//普通蹲
         {
-            _lastPlayerStatus = _currentPlayerStatus;
-            _currentPlayerStatus = playerStatus.scrunch;
+            if (Input.GetKey(KeyCode.LeftControl) ||
+                Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.DownArrow))
+            {
+                _scrunching = true;
+                SetupScrunchStart();
+                //开始蹲
+                return;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Space))
+
+        //走 + 跳/蹲
+        if (_movingSatus != movingDirection.None)
         {
-            _lastPlayerStatus = _currentPlayerStatus;
-            _currentPlayerStatus = playerStatus.jump;
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                _jumping = true;
+                SetupJumpStart(playerStatus.JumpStart);
+                //开始斜跳
+                return;
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl) ||  Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                _scrunching = true;
+                SetupScrunchStart();
+                //开始蹲
+                return;
+            }
         }
-        else
+
+
+        //普通跳
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            _lastPlayerStatus = _currentPlayerStatus;
-            _currentPlayerStatus = playerStatus.idle;
+            _jumping = true;
+            SetupJumpStart(playerStatus.JumpAuto);
+            //普通跳
+            return;
+        }
+
+        //普通走
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            _movingSatus = movingDirection.Left;
+            SetupMoving(true);
+            //向左跑
+        }else if (Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            _movingSatus = movingDirection.None;
+            SetupMoving(false);
+        }
+        if(Input.GetKey(KeyCode.RightArrow))
+        {
+            _movingSatus = movingDirection.Right;
+            SetupMoving(true);
+            //向右跑
+        }
+        else if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            _movingSatus = movingDirection.None;
+            SetupMoving(false);
+        }
+        return;
+    }
+
+    private void SetAnimatorTrigger(playerStatus playerStatus)
+    {
+        _animator.SetTrigger(_animatorHashIdList[(int)playerStatus]);
+    }
+
+    private void SetAnimatorBool(playerStatus playerStatus, bool active)
+    {
+        _animator.SetBool(_animatorHashIdList[(int) playerStatus], active);
+    }
+
+    private void SetupJumpStart(playerStatus jumpStatus)
+    {
+        print(jumpStatus);
+        if (_movingSatus == movingDirection.Left)
+        {
+            //SetAnimatorBool(playerStatus.Run, false);
+            _rigidbody2D.AddForce(-transform.right * _jumpMovingForce);
+        }
+        else if (_movingSatus == movingDirection.Right)
+        {
+            //SetAnimatorBool(playerStatus.Run, false);
+            _rigidbody2D.AddForce(transform.right * _jumpMovingForce);
+        }
+        //_rigidbody2D.AddForce(transform.up * _jumpSpeed);
+        _rigidbody2D.velocity = transform.up * _jumpSpeed;
+        SetAnimatorTrigger(jumpStatus);
+
+    }
+
+    private void SetupJumpEnd()
+    {
+        if (_jumping)
+        {
+            _jumping = false;
+            SetAnimatorTrigger(playerStatus.JumpEnd);
+            _rigidbody2D.velocity = Vector2.zero;
         }
     }
 
-    private void UpdatePlayerView()
+    private void SetupMoving(bool active)
     {
-        //状态机
-        _animator.ResetTrigger(_animatorHashIdList[(int) _lastPlayerStatus]);
-        _animator.SetTrigger(_animatorHashIdList[(int)_currentPlayerStatus]);
+        SetAnimatorBool(playerStatus.Run, active);
 
-        //对应状态设置
-        switch (_currentPlayerStatus)
+        if (active)
         {
-            case playerStatus.idle:
-                SetupIdle();
-                break;
-            case playerStatus.jump:
-                SetupJump();
-                break;
-            case playerStatus.leftWalk:
-                SetupLeftWalk();
-                break;
-            case playerStatus.rightWalk:
-                SetupRightWalk();
-                break;
-            case playerStatus.scrunch:
-                SetupScrunch();
-                break;
+            if (_movingSatus == movingDirection.Left)
+            {
+                _spriteRenderer.flipX = true;
+                _rigidbody2D.MovePosition(_rigidbody2D.position + _MovingSpeed * Vector2.left);
+            }
+            else if (_movingSatus == movingDirection.Right)
+            {
+                _spriteRenderer.flipX = false;
+                _rigidbody2D.MovePosition(_rigidbody2D.position + _MovingSpeed * Vector2.right);
+            }
         }
     }
 
-    private void SetupIdle()
+    private void SetupScrunchStart()
     {
-
+        if (_movingSatus != movingDirection.None)
+            SetAnimatorBool(playerStatus.Run, false);
+        SetAnimatorTrigger(playerStatus.SrounchStart);
     }
-    private void SetupJump()
-    {
 
-    }
-    private void SetupLeftWalk()
+    private void SetupScrunchEnd()
     {
-
-    }
-    private void SetupRightWalk()
-    {
-
-    }
-    private void SetupScrunch()
-    {
-
+        _scrunching = false;
+        SetAnimatorTrigger(playerStatus.SrounchEnd);
     }
 
     #endregion
 
     #region Collider
 
+    void OnCollisionEnter2D(Collision2D Collision2D)
+    {
+        //接触到地板
+        if (Collision2D.transform.tag == "floor")
+        {
+            SetupJumpEnd();
+            return;
+        }
+    }
     void OnTriggerEnter2D(Collider2D collider2D)
     {
+        //接触到门
+
+        //接触到其他物品
         GoodEffect goodEffect = GoodEffect.None;
         if (collider2D.tag == "Buff")
         {
@@ -152,7 +279,28 @@ public class PlayerManager : MonoBehaviour
         {
             goodEffect = GoodEffect.Debuff;
         }
-        collider2D.GetComponent<Good>().GetInteractiveGood(goodEffect);
+
+        //_playerData.blood -=?
+       //collider2D.GetComponent<NewBehaviourScript>().GetInteractiveGood(goodEffect);
+
+        UpdateSomethings();
+    }
+
+    private void UpdateSomethings()
+    {
+        //刷新血条UI
+        Singleton<GameManager>.Instance.UpdataBloodSlider(PlayerData.MAXBLOOD, _playerData.blood);
+    }
+
+    #endregion
+
+
+    #region Animation Callback
+
+    public void JumpSpeedUpDown()
+    {
+        _rigidbody2D.AddForce(-transform.up * _jumpDownForce);
+        return;
     }
 
     #endregion
