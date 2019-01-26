@@ -20,6 +20,9 @@ public class NewBehaviourScript : MonoBehaviour
     public byte DeBuffNu;
     public byte DoorNu;
 
+    public AudioSource BuffAudio;
+    public AudioSource DeBuffAudio;
+
 
     //private enum GoodType
     //{
@@ -39,6 +42,11 @@ public class NewBehaviourScript : MonoBehaviour
     public int GetInteractiveGood(GoodEffect effect)
     {
 
+        GameObject spawn = GameObject.Find("Spawn");
+
+        spawn.GetComponents<spawn>().count = spawn.GetComponents<spawn>().count++;
+
+
 
         switch (effect)
         {
@@ -52,17 +60,18 @@ public class NewBehaviourScript : MonoBehaviour
 
             case GoodEffect.None:
 
-                return DoorNu;
-
-
-
-
-
-
+                return DoorNu;          
 
         }
         return 0;
     }
+
+
+
+
+
+
+    
 
     #endregion
 }
