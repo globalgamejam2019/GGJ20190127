@@ -4,24 +4,30 @@ using UnityEngine;
 
 
 
+
 public enum GoodEffect
 {
-    Buff = 0,       
+    Buff = 0,
     Debuff = 1,
     None = 2
 }
 
-public class Good : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
-    private enum GoodType
-    {
-        Book = 0,
-        Xbox = 1,
-        Switch = 2,
 
-        Door = 99,
-    }
+    public GameObject good;
+    public byte BuffNu;
+    public byte DeBuffNu;
+    public byte DoorNu;
 
+
+    //private enum GoodType
+    //{
+    //    Book = 0,
+    //    Xbox = 1,
+    //    Switch = 2,
+    //    Door = 99,
+    //}
 
     #region Public Methons
     /// <summary>
@@ -32,9 +38,28 @@ public class Good : MonoBehaviour
     /// <returns></returns>
     public int GetInteractiveGood(GoodEffect effect)
     {
+
+
         switch (effect)
         {
-                
+            case GoodEffect.Buff:
+
+                return BuffNu;
+
+            case GoodEffect.Debuff:
+
+                return DeBuffNu;
+
+            case GoodEffect.None:
+
+                return DoorNu;
+
+
+
+
+
+
+
         }
         return 0;
     }
