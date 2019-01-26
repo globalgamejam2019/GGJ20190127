@@ -85,6 +85,7 @@
     <Compile Include="Assets\Script\Good\Good.cs" />
     <Compile Include="Assets\Script\Player\PlayerData.cs" />
     <Compile Include="Assets\Script\Player\PlayerManager.cs" />
+    <Compile Include="Assets\Script\Player\Spawn.cs" />
     <None Include="Assets\Anima2D\Examples\Shaders\VisibleInsideMask.shader" />
     <None Include="Assets\Anima2D\Examples\Shaders\VisibleOutsideMask.shader" />
     <None Include="Assets\Anima2D\Version.txt" />

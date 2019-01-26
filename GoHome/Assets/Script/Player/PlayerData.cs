@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerData
 {
-    public float blood = 0;
+    public int blood = 0;
+    public const int MAXBLOOD = 1000;
 
-    public PlayerData(float blood)
+    public PlayerData(int blood)
     {
         this.blood = blood;
     }

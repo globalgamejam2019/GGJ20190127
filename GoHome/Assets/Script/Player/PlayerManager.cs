@@ -30,9 +30,9 @@ public enum movingDirection
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField]
-    private float _firstBlood = 100.0f;
+    private int _firstBlood = 100;
     [SerializeField]
-    private float _jumpForce = 1.0f;
+    private float _jumpSpeed = 1.0f;
     [SerializeField]
     private float _jumpDownForce = 1.0f;
     [SerializeField]
@@ -193,7 +193,7 @@ public class PlayerManager : MonoBehaviour
 
     private void SetupJumpStart(playerStatus jumpStatus)
     {
-
+        print(jumpStatus);
         if (_movingSatus == movingDirection.Left)
         {
             //SetAnimatorBool(playerStatus.Run, false);
@@ -204,7 +204,8 @@ public class PlayerManager : MonoBehaviour
             //SetAnimatorBool(playerStatus.Run, false);
             _rigidbody2D.AddForce(transform.right * _jumpMovingForce);
         }
-            _rigidbody2D.AddForce(transform.up * _jumpForce);
+        //_rigidbody2D.AddForce(transform.up * _jumpSpeed);
+        _rigidbody2D.velocity = transform.up * _jumpSpeed;
         SetAnimatorTrigger(jumpStatus);
 
     }
@@ -215,6 +216,7 @@ public class PlayerManager : MonoBehaviour
         {
             _jumping = false;
             SetAnimatorTrigger(playerStatus.JumpEnd);
+            _rigidbody2D.velocity = Vector2.zero;
         }
     }
 
@@ -277,9 +279,17 @@ public class PlayerManager : MonoBehaviour
         {
             goodEffect = GoodEffect.Debuff;
         }
-        collider2D.GetComponent<Good>().GetInteractiveGood(goodEffect);
 
-        
+        //_playerData.blood -=?
+       //collider2D.GetComponent<NewBehaviourScript>().GetInteractiveGood(goodEffect);
+
+        UpdateSomethings();
+    }
+
+    private void UpdateSomethings()
+    {
+        //刷新血条UI
+        Singleton<GameManager>.Instance.UpdataBloodSlider(PlayerData.MAXBLOOD, _playerData.blood);
     }
 
     #endregion

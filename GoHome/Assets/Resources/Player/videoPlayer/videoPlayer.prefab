@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firstBlood: 100
-  _jumpForce: 450
+  _jumpSpeed: 12
   _jumpDownForce: 500
   _jumpMovingForce: 350
   _MovingSpeed: 0.1
