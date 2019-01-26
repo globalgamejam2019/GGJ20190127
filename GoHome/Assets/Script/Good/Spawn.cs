@@ -4,11 +4,6 @@ using System.Collections;
 public class Spawn : MonoBehaviour {
 
     public GameObject[] Good;
-
-
-
-
-
     public float count = 0;
 
 
@@ -27,11 +22,8 @@ public class Spawn : MonoBehaviour {
         if (count != 0)
         {
             spawn();
-
         }
 
-
- 
     }
 
 
@@ -44,7 +36,6 @@ public class Spawn : MonoBehaviour {
         if (timer >= 3 || timer =0.5)
         {
             Instantiate(Good[Random.Range(0, Good.Length)], new Vector2(-9.5f, Random.Range(10, -8)), Quaternion.identity);
-
 
             timer = 0;
 
