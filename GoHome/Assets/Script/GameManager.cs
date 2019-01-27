@@ -95,7 +95,6 @@ public class GameManager : MonoBehaviour
     private Dictionary<BackgroundSceneStatus, List<string>> backGroundTextDict;
 
     private List<AudioClip> bgmAudioClipList;
-    private List<AudioClip> playerClipList;
     //temp
     public bool firstBloodMax = false;
 
@@ -115,7 +114,6 @@ public class GameManager : MonoBehaviour
         StartGame();
     }
 
-
     private void LoadUIResource()
     {
         //Mon Face Sprite
@@ -131,12 +129,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 5; i++)
             bgmAudioClipList.Add(Resources.Load<AudioClip>("Audio/" + i));
         _audipSource = _mainCamera.GetComponent<AudioSource>();
-        //玩家音效
-        playerClipList = new List<AudioClip>();
-        for (int i = 0; i < 2; i++)
-        {
-            playerClipList.Add(Resources.Load<AudioClip>("Audio/PlayerAudio/" + i));
-        }
+
         return;
     }
 
@@ -246,15 +239,6 @@ public class GameManager : MonoBehaviour
         _audipSource.Stop();
         _audipSource.clip = bgmAudioClipList[(int)audioSoundType];
         _audipSource.Play();
-    }
-
-    public AudioClip GetJumpClip()
-    {
-        return playerClipList[1];
-    }
-    public AudioClip GetScrunchClip()
-    {
-        return playerClipList[0];
     }
     #endregion
 

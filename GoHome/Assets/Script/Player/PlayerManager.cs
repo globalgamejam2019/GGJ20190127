@@ -41,6 +41,8 @@ public class PlayerManager : MonoBehaviour
     private float _jumpMovingForce = 1.0f;
     [SerializeField]
     private float _MovingSpeed = 1.0f;
+    [SerializeField]
+    public List<AudioClip> playerClipList;
 
     private Animator _animator;
     private Rigidbody2D _rigidbody2D;
@@ -52,6 +54,7 @@ public class PlayerManager : MonoBehaviour
     private movingDirection _movingSatus = movingDirection.None;
     private bool _jumping = false;
     private bool _scrunching = false;
+
 
     void Awake()
     {
@@ -70,6 +73,13 @@ public class PlayerManager : MonoBehaviour
         _animatorHashIdList.Add((int) playerStatus.SrounchStart, Animator.StringToHash("SrounchStart"));
         _animatorHashIdList.Add((int) playerStatus.SrounchEnd, Animator.StringToHash("SrounchEnd"));
         _animatorHashIdList.Add((int) playerStatus.Run, Animator.StringToHash("Run"));
+
+        //玩家音效
+        playerClipList = new List<AudioClip>();
+        for (int i = 0; i < 2; i++)
+        {
+            playerClipList.Add(Resources.Load<AudioClip>("Audio/PlayerAudio/" + i));
+        }
     }
 
     void Update()
@@ -209,7 +219,7 @@ public class PlayerManager : MonoBehaviour
         //_rigidbody2D.AddForce(transform.up * _jumpSpeed);
         _rigidbody2D.velocity = transform.up * _jumpSpeed;
         SetAnimatorTrigger(jumpStatus);
-        SetupAudioClip(Singleton<GameManager>.Instance.GetJumpClip());
+        SetupAudioClip(playerClipList[1]);
     }
 
     private void SetupJumpEnd()
@@ -246,7 +256,7 @@ public class PlayerManager : MonoBehaviour
         if (_movingSatus != movingDirection.None)
             SetAnimatorBool(playerStatus.Run, false);
         SetAnimatorTrigger(playerStatus.SrounchStart);
-        SetupAudioClip(Singleton<GameManager>.Instance.GetScrunchClip());
+        SetupAudioClip(playerClipList[0]);
     }
 
     private void SetupScrunchEnd()

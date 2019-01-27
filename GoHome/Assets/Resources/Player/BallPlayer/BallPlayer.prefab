@@ -157,6 +157,9 @@ MonoBehaviour:
   _jumpDownForce: 350
   _jumpMovingForce: 350
   _MovingSpeed: 0.1
+  playerClipList:
+  - {fileID: 8300000, guid: 6a432ba354ae3cf4791ff96f57d4ed4a, type: 3}
+  - {fileID: 8300000, guid: 2f91cd331cf6b1e4bb430efad0c05cdd, type: 3}
 --- !u!82 &8815626392664295978
 AudioSource:
   m_ObjectHideFlags: 0
@@ -168,7 +171,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

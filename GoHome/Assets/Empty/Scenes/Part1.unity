@@ -1577,6 +1577,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 19.199707
       objectReference: {fileID: 0}
+    - target: {fileID: 7437646210480016843, guid: 50b05672288463a49a009958441858e1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b05672288463a49a009958441858e1, type: 3}
 --- !u!1 &1566330865
@@ -1690,6 +1695,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8338067844216136691, guid: 4091d4553e45a76498d613d8eac667f1,
         type: 3}
+      propertyPath: playerClipList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338067844216136691, guid: 4091d4553e45a76498d613d8eac667f1,
+        type: 3}
       propertyPath: _UICanvas
       value: 
       objectReference: {fileID: 791762084}
@@ -1723,6 +1733,16 @@ PrefabInstance:
       propertyPath: _backGroundText
       value: 
       objectReference: {fileID: 279370960}
+    - target: {fileID: 8338067844216136691, guid: 4091d4553e45a76498d613d8eac667f1,
+        type: 3}
+      propertyPath: playerClipList.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a432ba354ae3cf4791ff96f57d4ed4a, type: 3}
+    - target: {fileID: 8338067844216136691, guid: 4091d4553e45a76498d613d8eac667f1,
+        type: 3}
+      propertyPath: playerClipList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f91cd331cf6b1e4bb430efad0c05cdd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4091d4553e45a76498d613d8eac667f1, type: 3}
 --- !u!1 &1695576010
