@@ -301,6 +301,12 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 1989868468}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &240670745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 240670745, guid: 50b05672288463a49a009958441858e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1510644928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &279370960 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7437646210404254503, guid: 50b05672288463a49a009958441858e1,
@@ -1572,16 +1578,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7437646210480016843, guid: 50b05672288463a49a009958441858e1,
+    - target: {fileID: 3691224860280298259, guid: 50b05672288463a49a009958441858e1,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 19.199707
-      objectReference: {fileID: 0}
-    - target: {fileID: 7437646210480016843, guid: 50b05672288463a49a009958441858e1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -30
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8338067844216136691}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b05672288463a49a009958441858e1, type: 3}
 --- !u!1 &1566330865
@@ -1695,11 +1696,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8338067844216136691, guid: 4091d4553e45a76498d613d8eac667f1,
         type: 3}
-      propertyPath: playerClipList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8338067844216136691, guid: 4091d4553e45a76498d613d8eac667f1,
-        type: 3}
       propertyPath: _UICanvas
       value: 
       objectReference: {fileID: 791762084}
@@ -1735,14 +1731,9 @@ PrefabInstance:
       objectReference: {fileID: 279370960}
     - target: {fileID: 8338067844216136691, guid: 4091d4553e45a76498d613d8eac667f1,
         type: 3}
-      propertyPath: playerClipList.Array.data[0]
+      propertyPath: _gameOver
       value: 
-      objectReference: {fileID: 8300000, guid: 6a432ba354ae3cf4791ff96f57d4ed4a, type: 3}
-    - target: {fileID: 8338067844216136691, guid: 4091d4553e45a76498d613d8eac667f1,
-        type: 3}
-      propertyPath: playerClipList.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 2f91cd331cf6b1e4bb430efad0c05cdd, type: 3}
+      objectReference: {fileID: 240670745}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4091d4553e45a76498d613d8eac667f1, type: 3}
 --- !u!1 &1695576010
@@ -2351,3 +2342,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8338067844216136691 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8338067844216136691, guid: 4091d4553e45a76498d613d8eac667f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1609719942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e5014a279f2374fb31e3947643b592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

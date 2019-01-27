@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
     private Image _backGroundImage;
     [SerializeField]
     private Text _backGroundText;
+    [SerializeField]
+    private GameObject _gameOver;
     #endregion
 
 
@@ -112,6 +114,8 @@ public class GameManager : MonoBehaviour
         LoadUIResource();
         InitData();
         StartGame();
+
+        SetupBackgroundText(BackgroundSceneStatus.StartScene1);
     }
 
     private void LoadUIResource()
@@ -283,7 +287,12 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         SetAudioBgm(AudioSoundType.fail);
+        _gameOver.SetActive(true);
     }
 
+    public void ChangeToScene0()
+    {
+        Singleton<GameChangeManager>.Instance.ChangeScene(0);
+    }
     #endregion
 }

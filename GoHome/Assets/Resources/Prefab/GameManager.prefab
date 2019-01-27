@@ -50,6 +50,7 @@ MonoBehaviour:
   _selfAwarenessImage: {fileID: 0}
   _backGroundImage: {fileID: 0}
   _backGroundText: {fileID: 0}
+  _gameOver: {fileID: 0}
   backGroundTextList:
   - sceneStatus: 0
     sceneTextList:
