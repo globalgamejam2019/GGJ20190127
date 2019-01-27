@@ -20,8 +20,10 @@ public class Good : MonoBehaviour
     private int DeBuffNu = -20;
     private byte DoorNu;
 
-    public AudioSource BuffAudio;
-    public AudioSource DeBuffAudio;
+    public AudioClip BuffAudio1;
+    public AudioClip BuffAudio2;
+    public AudioClip DeBuffAudio1;
+    public AudioClip DeBuffAudio2;
 
 
     //private enum GoodType
@@ -44,10 +46,38 @@ public class Good : MonoBehaviour
     {
         if (coll.gameObject.tag == "Wall")
         {
-           
- 
             GameObject.Destroy(this.gameObject);
-          
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        if (collider2D.tag == "Player")
+        {
+            if (transform.name == "pingdiguo")
+            {
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().clip = DeBuffAudio1;
+                GetComponent<AudioSource>().Play(); ;
+            }
+            else if (transform.name == "53")
+            {
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().clip = DeBuffAudio2;
+                GetComponent<AudioSource>().Play(); ;
+            }
+            else if (transform.name == "ball")
+            {
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().clip = BuffAudio1;
+                GetComponent<AudioSource>().Play(); ;
+            }
+            else if (transform.name == "shoubing")
+            {
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().clip = BuffAudio2;
+                GetComponent<AudioSource>().Play(); ;
+            }
         }
     }
 
@@ -59,18 +89,20 @@ public class Good : MonoBehaviour
        
         GameObject.Find("Spawn").GetComponent<Spawn>().count++;
 
-
+            
 
         switch (effect)
         {
             case GoodEffect.Buff:
-               
-                Destroy(this.gameObject);
+                
+                transform.parent.position = new Vector3(1000, 1000, 1000);
+                //Destroy(this.gameObject);
                 return BuffNu;
 
             case GoodEffect.Debuff:
-               
-                Destroy(this.gameObject);
+                
+                transform.parent.position = new Vector3(1000, 1000, 1000);
+                //Destroy(this.gameObject);
                 return DeBuffNu;
 
             case GoodEffect.None:
@@ -79,6 +111,7 @@ public class Good : MonoBehaviour
                 return DoorNu;          
 
         }
+
         return 0;
     }
 

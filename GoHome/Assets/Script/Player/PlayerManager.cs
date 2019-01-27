@@ -80,7 +80,6 @@ public class PlayerManager : MonoBehaviour
         {
             playerClipList.Add(Resources.Load<AudioClip>("Audio/PlayerAudio/" + i));
         }
-
         UpdateSomethings();
     }
 
@@ -108,6 +107,7 @@ public class PlayerManager : MonoBehaviour
                 _movingSatus = movingDirection.None;
                 SetupMoving(false);
             }
+            print("跳跃过程中");
             return;
         }
 
@@ -175,8 +175,14 @@ public class PlayerManager : MonoBehaviour
         {
             _movingSatus = movingDirection.Left;
             SetupMoving(true);
+            if (_spriteRenderer.sprite == null && transform.localScale.x > 0)
+            {
+                print("旋转");
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            }
             //向左跑
-        }else if (Input.GetKeyUp(KeyCode.LeftArrow))
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftArrow))
         {
             _movingSatus = movingDirection.None;
             SetupMoving(false);
@@ -185,6 +191,10 @@ public class PlayerManager : MonoBehaviour
         {
             _movingSatus = movingDirection.Right;
             SetupMoving(true);
+            if (_spriteRenderer.sprite == null && transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            }
             //向右跑
         }
         else if (Input.GetKeyUp(KeyCode.RightArrow))
@@ -242,19 +252,13 @@ public class PlayerManager : MonoBehaviour
             if (_movingSatus == movingDirection.Left)
             {
                 _spriteRenderer.flipX = true;
-                if (_spriteRenderer.sprite == null && transform.localScale.x > 0)
-                {
-                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                }
+
                 _rigidbody2D.MovePosition(_rigidbody2D.position + _MovingSpeed * Vector2.left);
             }
             else if (_movingSatus == movingDirection.Right)
             {
                 _spriteRenderer.flipX = false;
-                if (_spriteRenderer.sprite == null && transform.localScale.x < 0)
-                {
-                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                }
+
                 _rigidbody2D.MovePosition(_rigidbody2D.position + _MovingSpeed * Vector2.right);
             }
         }
@@ -287,6 +291,7 @@ public class PlayerManager : MonoBehaviour
             return;
         }
     }
+
     void OnTriggerEnter2D(Collider2D collider2D)
     {
         //接触到门
@@ -304,6 +309,17 @@ public class PlayerManager : MonoBehaviour
         _playerData.blood += collider2D.GetComponent<Good>().GetInteractiveGood(goodEffect);
         print(_playerData.blood);
         if (_playerData.blood > 100) _playerData.blood = 100;
+
+        if (!Singleton<GameManager>.Instance.isHasChangeAvatar && collider2D.name == "ball")
+        {
+            Singleton<GameManager>.Instance.isHasChangeAvatar = true;
+            Singleton<GameManager>.Instance.SetBallPlayer();
+        }
+        else if(!Singleton<GameManager>.Instance.isHasChangeAvatar && collider2D.name == "shoubing")
+        {
+            Singleton<GameManager>.Instance.isHasChangeAvatar = true;
+            Singleton<GameManager>.Instance.SetVideoPlayer();;
+        }
 
         UpdateSomethings();
     }

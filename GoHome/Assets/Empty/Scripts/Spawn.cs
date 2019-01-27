@@ -41,7 +41,7 @@ public class Spawn : MonoBehaviour {
 
         timer += Time.deltaTime;
      
-        if (timer >= 1)
+        if (timer >= 5)
         {
                 Instantiate(Good[Random.Range(0, Good.Length)], SPos[Random.Range(0, SPos.Length)].position, Quaternion.identity);
 

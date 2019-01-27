@@ -80,6 +80,11 @@ public class GameManager : MonoBehaviour
     private Text _backGroundText;
     [SerializeField]
     private GameObject _gameOver;
+    [SerializeField]
+    private Image _keyCache;
+
+    public bool isHasChangeAvatar = false;
+
     #endregion
 
 
@@ -119,6 +124,8 @@ public class GameManager : MonoBehaviour
         StartGame();
 
         SetupBackgroundText(BackgroundSceneStatus.StartScene1);
+
+        isHasChangeAvatar = false;
     }
 
     private void LoadUIResource()
@@ -197,6 +204,15 @@ public class GameManager : MonoBehaviour
     {
         _selfAwarenessImage.gameObject.SetActive(true);
         _selfAwarenessImage.sprite = _selfAwarenessSprite[(int) mySelfAwareness];
+    }
+
+    public void SetKeyImage()
+    {
+        _keyCache.sprite = Resources.Load<Sprite>("Sprite/UI/keyopen");
+    }
+    public void SetKeycloseImage()
+    {
+        _keyCache.sprite = Resources.Load<Sprite>("Sprite/UI/key");
     }
     #endregion
 
@@ -304,16 +320,18 @@ public class GameManager : MonoBehaviour
     public void SetBallPlayer()
     {
         playerGameObject[0].SetActive(false);
-        playerGameObject[1].SetActive(false);
+        playerGameObject[1].SetActive(true);
         playerGameObject[1].transform.position = playerGameObject[0].transform.position;
+        playerGameObject[1].GetComponent<PlayerManager>()._playerData = playerGameObject[0].GetComponent<PlayerManager>()._playerData;
         return;
     }
 
     public void SetVideoPlayer()
     {
         playerGameObject[0].SetActive(false);
-        playerGameObject[2].SetActive(false);
+        playerGameObject[2].SetActive(true);
         playerGameObject[2].transform.position = playerGameObject[0].transform.position;
+        playerGameObject[1].GetComponent<PlayerManager>()._playerData = playerGameObject[0].GetComponent<PlayerManager>()._playerData;
         return;
     }
 
