@@ -6,6 +6,6 @@ public class GameOverBtn : MonoBehaviour
 {
     public void ChangeToScene0()
     {
-        GameObject.Find("GameChangeManager").GetComponent<GameChangeManager>().ChangeScene(0);
+        GameObject.Find("GameChangeManager").GetComponent<GameChangeManager>().Quit();
     }
 }
