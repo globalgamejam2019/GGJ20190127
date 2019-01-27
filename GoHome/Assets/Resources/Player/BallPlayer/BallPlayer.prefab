@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a14d0e43b3d57c46bc1158cfe35bb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstBlood: 100
+  _firstBlood: 0
   _jumpSpeed: 12
   _jumpDownForce: 350
   _jumpMovingForce: 350

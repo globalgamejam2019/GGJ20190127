@@ -39,11 +39,24 @@ public class Good : MonoBehaviour
     /// </summary>
     /// <param name="goodType">物品类型</param>
     /// <returns></returns>
+    /// 
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Wall")
+        {
+           
+             
+            GameObject.Destroy(this.gameObject);
+          
+        }
+    }
+
+
+
     public int GetInteractiveGood(GoodEffect effect)
     {
 
-        
-    
+       
         GameObject.Find("Spawn").GetComponent<Spawn>().count++;
 
 
@@ -52,14 +65,15 @@ public class Good : MonoBehaviour
         {
             case GoodEffect.Buff:
 
+                Destroy(this.gameObject);
                 return BuffNu;
 
             case GoodEffect.Debuff:
-
+                Destroy(this.gameObject);
                 return DeBuffNu;
 
             case GoodEffect.None:
-
+                Destroy(this.gameObject);
                 return DoorNu;          
 
         }

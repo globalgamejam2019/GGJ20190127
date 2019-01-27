@@ -4,6 +4,7 @@ using System.Collections;
 public class Spawn : MonoBehaviour {
 
     public GameObject[] Good;
+    public Transform[] SPos;
     public float count = 0;
 
     float timer = 0;
@@ -18,28 +19,30 @@ public class Spawn : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (count != 0)
-        {
-            spawn();
-        }
-
+        //if (count != 0)
+        //{
+        //    spawn();
+        //}
+        spawn();
     }
 
 
     void spawn()
     {
 
-
         timer += Time.deltaTime;
      
         if (timer >= 1)
         {
-            Instantiate(Good[Random.Range(0, Good.Length)], new Vector2(-9.5f, Random.Range(10, -8)), Quaternion.identity);
+                Instantiate(Good[Random.Range(0, Good.Length)], SPos[Random.Range(0, SPos.Length)].position, Quaternion.identity);
 
             timer = 0;
 
         }
 
     }
+
+
+
 
 }

@@ -80,6 +80,8 @@ public class PlayerManager : MonoBehaviour
         {
             playerClipList.Add(Resources.Load<AudioClip>("Audio/PlayerAudio/" + i));
         }
+
+        UpdateSomethings();
     }
 
     void Update()
