@@ -29,6 +29,9 @@ public class Spawn : MonoBehaviour {
         {
             isFirstEat = true;
             Singleton<GameManager>.Instance.SetAudioBgm(AudioSoundType.eatGood);
+
+            /*Singleton<GameManager>.Instance.SetVideoPlayer();
+            Singleton<GameManager>.Instance.SetBallPlayer();*/
         }
     }
 

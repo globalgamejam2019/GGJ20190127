@@ -63,6 +63,9 @@ public class GameManager : MonoBehaviour
     private Camera _mainCamera;
 
     private AudioSource _audipSource;
+
+    [SerializeField]
+    private List<GameObject> playerGameObject;
     #region UICache
     [SerializeField]
     private Image _bloodImage;
@@ -163,6 +166,7 @@ public class GameManager : MonoBehaviour
     /// <param name="currentBlood">当前血</param>
     public void  UpdateBloodSlider(int maxBlood, int currentBlood)
     {
+        print(_bloodImage.rectTransform.offsetMax);
         _bloodImage.rectTransform.offsetMax = new Vector2(
             -(_bloodImageMaxWidth + (989.5f - 989.5f * (currentBlood * 1.0f / maxBlood))),
             _bloodImage.rectTransform.offsetMax.y
@@ -293,10 +297,25 @@ public class GameManager : MonoBehaviour
         SetAudioBgm(AudioSoundType.fail);
         _gameOver.SetActive(true);
     }
+    #endregion
 
-    public void ChangeToScene0()
+    #region Game Player Manager
+
+    public void SetBallPlayer()
     {
-        Singleton<GameChangeManager>.Instance.ChangeScene(0);
+        playerGameObject[0].SetActive(false);
+        playerGameObject[1].SetActive(false);
+        playerGameObject[1].transform.position = playerGameObject[0].transform.position;
+        return;
     }
+
+    public void SetVideoPlayer()
+    {
+        playerGameObject[0].SetActive(false);
+        playerGameObject[2].SetActive(false);
+        playerGameObject[2].transform.position = playerGameObject[0].transform.position;
+        return;
+    }
+
     #endregion
 }

@@ -51,9 +51,9 @@ public class PlayerManager : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private AudioSource _audioSource;
 
-    private movingDirection _movingSatus = movingDirection.None;
-    private bool _jumping = false;
-    private bool _scrunching = false;
+    private static movingDirection _movingSatus = movingDirection.None;
+    private static bool _jumping = false;
+    private static bool _scrunching = false;
 
 
     void Awake()
@@ -242,11 +242,19 @@ public class PlayerManager : MonoBehaviour
             if (_movingSatus == movingDirection.Left)
             {
                 _spriteRenderer.flipX = true;
+                if (_spriteRenderer.sprite == null && transform.localScale.x > 0)
+                {
+                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                }
                 _rigidbody2D.MovePosition(_rigidbody2D.position + _MovingSpeed * Vector2.left);
             }
             else if (_movingSatus == movingDirection.Right)
             {
                 _spriteRenderer.flipX = false;
+                if (_spriteRenderer.sprite == null && transform.localScale.x < 0)
+                {
+                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                }
                 _rigidbody2D.MovePosition(_rigidbody2D.position + _MovingSpeed * Vector2.right);
             }
         }
@@ -294,6 +302,7 @@ public class PlayerManager : MonoBehaviour
             goodEffect = GoodEffect.Debuff;
         }
         _playerData.blood += collider2D.GetComponent<Good>().GetInteractiveGood(goodEffect);
+        print(_playerData.blood);
         if (_playerData.blood > 100) _playerData.blood = 100;
 
         UpdateSomethings();
