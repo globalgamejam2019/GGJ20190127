@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
     public void  UpdateBloodSlider(int maxBlood, int currentBlood)
     {
         _bloodImage.rectTransform.offsetMax = new Vector2(
-            -(_bloodImage.rectTransform.offsetMax.x + (989.5f - 989.5f * (currentBlood * 1.0f / maxBlood))),
+            -(_bloodImageMaxWidth + (989.5f - 989.5f * (currentBlood * 1.0f / maxBlood))),
             _bloodImage.rectTransform.offsetMax.y
         );
     }

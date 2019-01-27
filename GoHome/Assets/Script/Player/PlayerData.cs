@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerData
 {
     public int blood = 0;
-    public const int MAXBLOOD = 1000;
+    public const int MAXBLOOD = 100;
 
     public PlayerData(int blood)
     {
