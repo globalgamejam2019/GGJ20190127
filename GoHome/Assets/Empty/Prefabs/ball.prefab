@@ -126,9 +126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   good: {fileID: 2376393042134044909}
-  BuffNu: 0
-  DeBuffNu: 0
-  DoorNu: 0
   BuffAudio: {fileID: 0}
   DeBuffAudio: {fileID: 0}
 --- !u!58 &1814601191499557333
@@ -158,7 +155,7 @@ GameObject:
   - component: {fileID: 4802607752573902220}
   m_Layer: 0
   m_Name: ball
-  m_TagString: Buff
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

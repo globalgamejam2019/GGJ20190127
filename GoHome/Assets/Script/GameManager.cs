@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
     //temp
     public bool firstBloodMax = false;
 
-
+    private bool isGameOver = false;
     #endregion
     public GameManager() { }
 
@@ -145,6 +145,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < backGroundTextList.Count; i++)
             if (!backGroundTextDict.ContainsKey(backGroundTextList[i].sceneStatus))
                 backGroundTextDict.Add(backGroundTextList[i].sceneStatus, backGroundTextList[i].sceneTextList);
+
+        isGameOver = false;
     }
 
     private void StartGame()
@@ -286,6 +288,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        if (isGameOver) return;
+        isGameOver = true;
         SetAudioBgm(AudioSoundType.fail);
         _gameOver.SetActive(true);
     }

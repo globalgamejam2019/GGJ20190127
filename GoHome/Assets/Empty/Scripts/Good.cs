@@ -16,9 +16,9 @@ public class Good : MonoBehaviour
 {
 
     public GameObject good;
-    public int BuffNu = 20;
-    public int DeBuffNu = -20;
-    public byte DoorNu;
+    private int BuffNu = 20;
+    private int DeBuffNu = -20;
+    private byte DoorNu;
 
     public AudioSource BuffAudio;
     public AudioSource DeBuffAudio;

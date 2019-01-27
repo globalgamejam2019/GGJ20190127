@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8163741763696965242}
   m_Layer: 0
   m_Name: 53
-  m_TagString: Untagged
+  m_TagString: DeBuff
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,9 +108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   good: {fileID: 7594958376002704496}
-  BuffNu: 0
-  DeBuffNu: 0
-  DoorNu: 0
   BuffAudio: {fileID: 0}
   DeBuffAudio: {fileID: 0}
 --- !u!58 &8163741763696965242
@@ -141,7 +138,7 @@ GameObject:
   - component: {fileID: 7594958376218160615}
   m_Layer: 0
   m_Name: 53
-  m_TagString: DeBuff
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

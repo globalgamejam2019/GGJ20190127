@@ -363,7 +363,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.59, y: 0.62}
+  m_Size: {x: 11.29, y: 0.55}
   m_EdgeRadius: 0
 --- !u!212 &358538402
 SpriteRenderer:
@@ -653,7 +653,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 0.51}
+  m_Size: {x: 3.5, y: 0.55}
   m_EdgeRadius: 0
 --- !u!1001 &674323763
 PrefabInstance:
@@ -731,6 +731,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818968290114316381, guid: 14579d5141d0e64418248f8c59760eba,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818968290114316381, guid: 14579d5141d0e64418248f8c59760eba,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818968290114316381, guid: 14579d5141d0e64418248f8c59760eba,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929568798058484709, guid: 14579d5141d0e64418248f8c59760eba,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14579d5141d0e64418248f8c59760eba, type: 3}
@@ -1258,6 +1278,7 @@ GameObject:
   - component: {fileID: 1028974638}
   - component: {fileID: 1028974637}
   - component: {fileID: 1028974636}
+  - component: {fileID: 1028974639}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Wall
@@ -1273,7 +1294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028974634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.51, y: 0, z: 0}
+  m_LocalPosition: {x: 10.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1566330866}
@@ -1374,6 +1395,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1028974639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028974634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156c3247c3a8e8a45bdde598fd2efd35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1034305610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,7 +1637,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.51, y: 1.05}
+  m_Size: {x: 3.94, y: 0.66}
   m_EdgeRadius: 0
 --- !u!1 &1152418717
 GameObject:
@@ -1752,6 +1785,20 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 240670745, guid: 50b05672288463a49a009958441858e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3691224860280298259, guid: 50b05672288463a49a009958441858e1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1609719943}
+    - target: {fileID: 3691224860280298259, guid: 50b05672288463a49a009958441858e1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeToScene0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b05672288463a49a009958441858e1, type: 3}
@@ -2176,8 +2223,25 @@ PrefabInstance:
       propertyPath: _gameOver
       value: 
       objectReference: {fileID: 1212585000}
+    - target: {fileID: 8338067844216136691, guid: 4091d4553e45a76498d613d8eac667f1,
+        type: 3}
+      propertyPath: backGroundTextList.Array.data[0].sceneTextList.Array.data[1]
+      value: "\u8BA9\u6211\u4EEC\u4ECE\u8FD9\u91CC\u51FA\u53D1\uFF0C\u91CD\u65B0\u56DE\u5FC6\u90A3\u4E9B\u8BB0\u5FC6\u4E2D\u5BF9\u5BB6\u7684\u8BA4\u77E5"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4091d4553e45a76498d613d8eac667f1, type: 3}
+--- !u!114 &1609719943 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8338067844216136691, guid: 4091d4553e45a76498d613d8eac667f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1609719942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e5014a279f2374fb31e3947643b592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1695576010
 GameObject:
   m_ObjectHideFlags: 0

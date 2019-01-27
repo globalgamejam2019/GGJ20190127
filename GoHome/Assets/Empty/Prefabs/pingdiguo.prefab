@@ -95,9 +95,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   good: {fileID: 1095438380841262672}
-  BuffNu: 0
-  DeBuffNu: 0
-  DoorNu: 0
   BuffAudio: {fileID: 0}
   DeBuffAudio: {fileID: 0}
 --- !u!114 &1597930745273941765

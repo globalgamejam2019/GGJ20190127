@@ -6,6 +6,7 @@ public class Spawn : MonoBehaviour {
     public GameObject[] Good;
     public Transform[] SPos;
     public float count = 0;
+    private bool isFirstEat = false;
 
     float timer = 0;
 
@@ -24,6 +25,11 @@ public class Spawn : MonoBehaviour {
             spawn();
         }
         //spawn();
+        if (count == 1 && !isFirstEat)
+        {
+            isFirstEat = true;
+            Singleton<GameManager>.Instance.SetAudioBgm(AudioSoundType.eatGood);
+        }
     }
 
 
@@ -39,6 +45,8 @@ public class Spawn : MonoBehaviour {
             timer = 0;
 
         }
+
+
 
     }
 

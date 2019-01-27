@@ -29,7 +29,7 @@ public enum movingDirection
 [RequireComponent(typeof(Animator))]
 public class PlayerManager : MonoBehaviour
 {
-    private PlayerData _playerData;
+    public PlayerData _playerData;
 
     [SerializeField]
     private int _firstBlood = 0;
@@ -207,7 +207,6 @@ public class PlayerManager : MonoBehaviour
 
     private void SetupJumpStart(playerStatus jumpStatus)
     {
-        print(jumpStatus);
         if (_movingSatus == movingDirection.Left)
         {
             //SetAnimatorBool(playerStatus.Run, false);
@@ -294,10 +293,8 @@ public class PlayerManager : MonoBehaviour
         {
             goodEffect = GoodEffect.Debuff;
         }
-        print(collider2D.GetComponent<Good>().GetInteractiveGood(goodEffect));
         _playerData.blood += collider2D.GetComponent<Good>().GetInteractiveGood(goodEffect);
         if (_playerData.blood > 100) _playerData.blood = 100;
-        if (_playerData.blood <= 0) _playerData.blood = 0;
 
         UpdateSomethings();
     }
@@ -318,7 +315,6 @@ public class PlayerManager : MonoBehaviour
         {
             Singleton<GameManager>.Instance.GameOver();
         }
-        print(_playerData.blood);
     }
 
     #endregion
