@@ -294,7 +294,7 @@ public class PlayerManager : MonoBehaviour
         {
             goodEffect = GoodEffect.Debuff;
         }
-
+        print(collider2D.GetComponent<Good>().GetInteractiveGood(goodEffect));
         _playerData.blood += collider2D.GetComponent<Good>().GetInteractiveGood(goodEffect);
         if (_playerData.blood > 100) _playerData.blood = 100;
         if (_playerData.blood <= 0) _playerData.blood = 0;
@@ -318,6 +318,7 @@ public class PlayerManager : MonoBehaviour
         {
             Singleton<GameManager>.Instance.GameOver();
         }
+        print(_playerData.blood);
     }
 
     #endregion
