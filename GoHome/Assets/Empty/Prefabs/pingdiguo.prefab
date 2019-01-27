@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8324543565777125526}
   m_Layer: 0
   m_Name: pingdiguo
-  m_TagString: Untagged
+  m_TagString: DeBuff
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -45,7 +45,7 @@ public class Good : MonoBehaviour
         if (coll.gameObject.tag == "Wall")
         {
            
-             
+          
             GameObject.Destroy(this.gameObject);
           
         }
@@ -64,7 +64,6 @@ public class Good : MonoBehaviour
         switch (effect)
         {
             case GoodEffect.Buff:
-
                 Destroy(this.gameObject);
                 return BuffNu;
 
