@@ -5,10 +5,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Singleton<T>
+public class Singleton<T> : MonoBehaviour
     where T : new()
 {
-    private static T m_Instance = default(T);
+    private static T m_Instance;
 
     public static T Instance
     {
@@ -16,7 +16,7 @@ public class Singleton<T>
         {
             if (m_Instance == null)
             {
-                m_Instance = new T();
+                m_Instance = GameObject.Find("GameManager").GetComponent<T>();
             }
 
             return m_Instance;

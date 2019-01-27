@@ -314,7 +314,7 @@ public class PlayerManager : MonoBehaviour
             Singleton<GameManager>.Instance.SetAudioBgm(AudioSoundType.bloodMax);
         }
 
-        if (_playerData.blood <= 0)
+        if (_playerData.blood < 0)
         {
             Singleton<GameManager>.Instance.GameOver();
         }

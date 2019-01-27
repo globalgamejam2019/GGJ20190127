@@ -19,11 +19,11 @@ public class Spawn : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //if (count != 0)
-        //{
-        //    spawn();
-        //}
-        spawn();
+        if (count != 0)
+        {
+            spawn();
+        }
+        //spawn();
     }
 
 

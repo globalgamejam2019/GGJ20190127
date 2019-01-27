@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8455526953856010402}
   - component: {fileID: 3034554301097359246}
   - component: {fileID: 1464396919698641142}
+  - component: {fileID: 1814601191499557333}
   m_Layer: 0
   m_Name: ball
   m_TagString: Untagged
@@ -130,6 +131,22 @@ MonoBehaviour:
   DoorNu: 0
   BuffAudio: {fileID: 0}
   DeBuffAudio: {fileID: 0}
+--- !u!58 &1814601191499557333
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376393042134044909}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.4999998
 --- !u!1 &4802607752573902221
 GameObject:
   m_ObjectHideFlags: 0
